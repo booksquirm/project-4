@@ -8,6 +8,14 @@ const weatherIconElement = document.getElementById('weatherIcon');
 
 const apiKey = '45174e86928d73e305616c618c6380e8';
 
+function convertMilitaryToStandard(militaryTime) {
+    let hours = militaryTime.substring(0,2);
+    let minutes = militaryTime.substring(2,4);
+    let meridian = (hours >= 12) ? "PM" : "AM";
+    let convertedTime = ((hours + 11) % 12 + 1) + ":" + minutes;
+    return convertedTime + " " + meridian;
+  };
+
 weatherForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
@@ -20,11 +28,11 @@ weatherForm.addEventListener('submit', (event) => {
             weatherData.forEach((period) => console.log(period.main.temp));
             weatherData.forEach((period) => {
                 const newPeriod = document.createElement("div");
-                const periodDatetime = document.createTextNode(period.dt_txt);
+                const periodDatetime = document.createTextNode(convertMilitaryToStandard(period.dt_txt));
                 newPeriod.appendChild(periodDatetime);
 
                 const newTemp = document.createElement("div");
-                const periodTemp = document.createTextNode(period.main.temp);
+                const periodTemp = document.createTextNode(`${period.main.temp}°F`);
                 newTemp.appendChild(periodTemp);
 
                 const newIcon = document.createElement("img");
