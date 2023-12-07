@@ -1,43 +1,72 @@
 /* General */
 
+@import url('https://fonts.googleapis.com/css2?family=Anek+Latin&family=Style+Script&family=Syne:wght@500&family=Zeyada&display=swap');
+
+
+body {
+    background-color: #ece7e7;
+    font-family: 'Anek Latin', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
 h1 {
+    font-family: 'Zeyada', cursive;
+    font-size: 40px;
+    margin: 0;
+    padding: 2px;
     text-align: center;
-    margin-bottom: 20px;
 }
 
 h2 {
     text-align: center;
-    margin-bottom: 10px;
+}
+
+img {
+    height: auto;
+    width: 100%;
+}
+
+.intro {
+    padding: 4px;
+    padding-bottom: 10px;
+}
+
+footer {
+    background-color: #D2CBCB;
+    color: #75666d;
+    padding: 2px;
 }
 
 /* Form */
 
-form {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-}
+#weatherForm button {
+    background-color: #ADA0A6; 
+    border: 2px solid #D2CBCB; 
+    color: #ffffff; 
+    font-family: 'Anek Latin', sans-serif;
+    padding: 8px 16px;
+    border-radius: 25px;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  #weatherForm button:hover {
+    background-color: #D2CBCB; 
+    color: #000000; 
+  }
+  
+  #weatherForm button:active {
+    background-color: #ADA0A6; 
+  }
+  
+  #weatherForm button::before {
+    line-height: 20px;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
 
-label {
-    margin-bottom: 10px;
-}
-
-input {
-    width: 200px;
-    padding: 5px;
-    border: 1px solid #ccc;
-}
-
-button {
-    padding: 5px 5px;
-    background-color: #c2afca;
-    max-width: 100px;
-}
-
-#weatherInfo {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 20px;
+  form {
+    padding: 4px;
 }
 
 /* Table */
