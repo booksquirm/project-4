@@ -6,16 +6,29 @@
     <title>Project 4: Web App</title>
 </head>
 <body>
-    
-<title>Travel Weather</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
-
 <body>
-    <h1>Travel Weather</h1>
+
+    <header>
+        <h1>✈ Jen's Travel Weather App</h1>
+    </header>
+
+    <img src="media/travel-photo-1.jpg" alt="hot air balloons in new mexico.">
+
+    <div class="intro">
+        <h2>Welcome to My Web App</h2>
+        <p>
+            Planning your next adventure or just curious about what the skies hold? Look no further! This is your one-stop shop for an accurate three-day weather forecast for any city in the world.</p>
+            
+            <p>
+                Whether you're a seasoned traveler checking the forecast for your upcoming trip or a local resident planning your weekend activities, this web app provides the information you need to make informed decisions about your day-to-day life.
+        </p>
+    </div>
+
     <form id="weatherForm">
-        <label for="destination">Enter your travel destination:</label>
-        <input type="text" id="destination" name="destination" placeholder="City or country">
+        <label for="destination">Enter your destination:</label>
+        <input type="text" id="destination" name="destination" placeholder="Name of City">
         <button type="submit">Get Weather</button>
     </form>
 
@@ -25,9 +38,15 @@
           <th>Date</th>
           <th>Time</th>
           <th>Temperature</th>
-          <th>Icon</th>
+          <th>Conditions</th>
         </tr>
     </table>
+
+    <footer>
+        <p>
+            This fictitious website was created as an academic exercise for the Diablo Valley College course, ARTDM-174. In no way should this content be considered or used as a source of factual public information.
+        </p>
+    </footer>
 
     <script src="javascript/threeday.js"></script>
 </body>
