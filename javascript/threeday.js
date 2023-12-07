@@ -10,9 +10,9 @@ const apiKey = '45174e86928d73e305616c618c6380e8';
 
 function convertMilitaryToStandard(militaryTime) {
     let hours = militaryTime.substring(0,2);
-    let minutes = militaryTime.substring(2,4);
+    let minutes = militaryTime.substring(3,5);
     let meridian = (hours >= 12) ? "PM" : "AM";
-    let convertedTime = ((hours + 11) % 12 + 1) + ":" + minutes;
+    let convertedTime = ((parseInt(hours) + 11) % 12 + 1) + ":" + minutes;
     return convertedTime + " " + meridian;
   };
 
@@ -25,14 +25,16 @@ weatherForm.addEventListener('submit', (event) => {
         .then(response => response.json())
         .then(data => {
             const weatherData = data.list;
-            weatherData.forEach((period) => console.log(period.main.temp));
             weatherData.forEach((period) => {
+                const date = new Date(period.dt_txt.split(" ")[0]).toDateString();
+                const time = convertMilitaryToStandard(period.dt_txt.split(" ")[1]);
+
                 const newPeriod = document.createElement("div");
-                const periodDatetime = document.createTextNode(convertMilitaryToStandard(period.dt_txt));
+                const periodDatetime = document.createTextNode(`${date} ${time}`);
                 newPeriod.appendChild(periodDatetime);
 
                 const newTemp = document.createElement("div");
-                const periodTemp = document.createTextNode(`${period.main.temp}°F`);
+                const periodTemp = document.createTextNode(`${Math.round(period.main.temp)}°F`);
                 newTemp.appendChild(periodTemp);
 
                 const newIcon = document.createElement("img");
