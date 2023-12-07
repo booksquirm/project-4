@@ -24,25 +24,34 @@ weatherForm.addEventListener('submit', (event) => {
     fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${destination}&appid=${apiKey}&units=imperial`)
         .then(response => response.json())
         .then(data => {
+        weatherInfo.style.display = "block";
+
             const weatherData = data.list;
             weatherData.forEach((period) => {
+                const newRow = document.createElement("tr");
                 const date = new Date(period.dt_txt.split(" ")[0]).toDateString();
                 const time = convertMilitaryToStandard(period.dt_txt.split(" ")[1]);
 
-                const newPeriod = document.createElement("div");
-                const periodDatetime = document.createTextNode(`${date} ${time}`);
-                newPeriod.appendChild(periodDatetime);
+                const newDate = document.createElement("td");
+                const periodDate = document.createTextNode(`${date}`);
+                newDate.appendChild(periodDate);
 
-                const newTemp = document.createElement("div");
+                const newTime = document.createElement("td");
+                const periodTime= document.createTextNode(`${time}`);
+                newTime.appendChild(periodTime);
+
+                const newTemp = document.createElement("td");
                 const periodTemp = document.createTextNode(`${Math.round(period.main.temp)}°F`);
                 newTemp.appendChild(periodTemp);
 
                 const newIcon = document.createElement("img");
                 newIcon.src = `https://openweathermap.org/img/wn/${period.weather[0].icon}@2x.png`;
 
-                weatherInfo.appendChild(newPeriod);
-                weatherInfo.appendChild(newTemp);
-                weatherInfo.appendChild(newIcon);
+                weatherInfo.appendChild(newRow);
+                newRow.appendChild(newDate);
+                newRow.appendChild(newTime);
+                newRow.appendChild(newTemp);
+                newRow.appendChild(newIcon);
             });
 
         })

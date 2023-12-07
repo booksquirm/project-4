@@ -10,6 +10,7 @@
 <title>Travel Weather</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
+
 <body>
     <h1>Travel Weather</h1>
     <form id="weatherForm">
@@ -18,12 +19,15 @@
         <button type="submit">Get Weather</button>
     </form>
 
-    <div id="weatherInfo">
-        <h2>Weather Information</h2>
-        <p id="temperature"></p>
-        <p id="humidity"></p>
-        <p id="description"></p>
-    </div>
+
+    <table id="weatherInfo" class = "hidden">
+        <tr>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Temperature</th>
+          <th>Icon</th>
+        </tr>
+    </table>
 
     <script src="javascript/threeday.js"></script>
 </body>

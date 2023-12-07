@@ -40,4 +40,10 @@ button {
     margin-bottom: 20px;
 }
 
+/* Table */
+
+.hidden {
+    display: none;
+}
+
 /* Media Queries */
