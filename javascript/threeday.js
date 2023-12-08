@@ -24,8 +24,7 @@ weatherForm.addEventListener('submit', (event) => {
     fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${destination}&appid=${apiKey}&units=imperial`)
         .then(response => response.json())
         .then(data => {
-        weatherInfo.style.display = "block";
-
+        weatherInfo.classList.remove("hidden");
             const weatherData = data.list;
             weatherData.forEach((period) => {
                 const newRow = document.createElement("tr");
@@ -44,9 +43,11 @@ weatherForm.addEventListener('submit', (event) => {
                 const periodTemp = document.createTextNode(`${Math.round(period.main.temp)}°F`);
                 newTemp.appendChild(periodTemp);
 
-                const newIcon = document.createElement("img");
-                newIcon.src = `https://openweathermap.org/img/wn/${period.weather[0].icon}@2x.png`;
-
+                const newIcon = document.createElement("td");
+                const periodIcon = document.createElement("img");
+                periodIcon.src = `https://openweathermap.org/img/wn/${period.weather[0].icon}@2x.png`;
+                newIcon.appendChild (periodIcon)
+               
                 weatherInfo.appendChild(newRow);
                 newRow.appendChild(newDate);
                 newRow.appendChild(newTime);
