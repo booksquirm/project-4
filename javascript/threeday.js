@@ -60,3 +60,4 @@ weatherForm.addEventListener('submit', (event) => {
             alert('Unable to retrieve weather information. Please try again later.');
         });
 });
+
