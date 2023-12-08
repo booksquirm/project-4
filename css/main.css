@@ -5,6 +5,7 @@
 
 body {
     background-color: #ece7e7;
+    display: inline-block;
     font-family: 'Anek Latin', sans-serif;
     margin: 0;
     padding: 0;
@@ -28,8 +29,8 @@ img {
 }
 
 .intro {
-    padding: 4px;
-    padding-bottom: 10px;
+    background-image: url("/media/map.jpg");
+    padding: 5px;
 }
 
 footer {
@@ -37,6 +38,7 @@ footer {
     color: #75666d;
     padding: 2px;
 }
+
 
 /* Form */
 
@@ -53,6 +55,7 @@ footer {
   #weatherForm button:hover {
     background-color: #D2CBCB; 
     color: #000000; 
+    cursor: pointer;
   }
   
   #weatherForm button:active {
@@ -66,8 +69,12 @@ footer {
   }
 
   form {
-    padding: 4px;
+    padding: 30px;
 }
+
+input[type='text'] {font-family: 'Anek Latin', sans-serif;
+}
+
 
 /* Table */
 
@@ -75,4 +82,31 @@ footer {
     display: none;
 }
 
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #a49696;
+  }
+  
+  th {
+    background-color: #D2CBCB;
+    font-size: 20px;
+    padding: 15px;
+  }
+
+  tr:hover {
+    background-color: #a49696;
+}
+
 /* Media Queries */
+
+@media screen and (min-width: 800px) {
+    table {
+      width: 100%;
+    }
+  }
